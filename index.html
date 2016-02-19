@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="dietApp">
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body> 
+    <div ng-controller="MenuController">
+    
+      <select>
+        <option ng-repeat = "item in menu"> {{item.Name}} </option>
+      </select>
+
+      <div class = "container">
+        <div class = "row">
+          <div class = "col-md-3" ng-repeat = "item in menu" style="text-align:center;">
+            <h4>{{item.Name}}</h4>
+            <ul>
+              <li>Protein: {{item.Protein}} Grams</li>
+              <li>Calories: {{item.Calories}}</li>
+              <li>Fat {{item.Fat}} Grams</li>
+            </ul>
+            <button ng-click="menu.$remove(item)">Remove</button>
+          </div>
+        </div>
+      </div> 
+
+      <div class = "container">
+        <div class = "row">
+          <div class = "col-md-12" style = "text-align: center;">
+            <button ng-click = "menuFormHidden = !menuFormHidden">Add A Menu Item</button>
+            <div ng-show = "menuFormHidden">
+              <form name = "newItem" ng-submit = "addItem()">
+                <input ng-model="newItemName" placeholder = "Name"/>
+                <input ng-model="newItemPro" placeholder = "Protein (grams)"/>
+                <input ng-model="newItemCal" placeholder = "Calories"/>
+                <input ng-model="newItemFat" placeholder = "Fat (grams)"/>
+                <button type="submit" ng-click = "menuFormHidden = !menuFormHidden">Add Item</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body> 
+</html> 
