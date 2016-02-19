@@ -29,4 +29,24 @@ var dietApp = angular.module("dietApp", ["firebase"])
 			menuFormHidden = !menuFormHidden;
 		}
 
-	});
+	})
+
+	.controller("UserController", function($scope, $firebaseArray){
+
+		var users = new Firebase("https://dietjournalapp.firebaseio.com/Users"); 
+		$scope.users = $firebaseArray(users);
+
+		$scope.addUser = function (){
+			$scope.users.$add({
+				FirstName: $scope.firstName,
+				LastName: $scope.lastName
+			});
+			clearForm(); 
+		};
+
+		var clearForm = function(){
+			$scope.firstName = "";
+			$scope.lastName = ""; 
+		};
+
+	})

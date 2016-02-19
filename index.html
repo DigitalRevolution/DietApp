@@ -11,10 +11,6 @@
   <body> 
     <div ng-controller="MenuController">
     
-      <select>
-        <option ng-repeat = "item in menu"> {{item.Name}} </option>
-      </select>
-
       <div class = "container">
         <div class = "row">
           <div class = "col-md-3" ng-repeat = "item in menu" style="text-align:center;">
@@ -45,7 +41,18 @@
           </div>
         </div>
       </div>
+      <select>
+        <option ng-repeat = "item in menu"> {{item.Name}} </option>
+      </select>
+    </div><!-- Close Menu Controller Scope -->
 
-    </div>
+    <div ng-controller="UserController">
+      <form name = "newUser" ng-submit = "addUser()">
+        <input ng-model="firstName" placeholder = "First Name"/>
+        <input ng-model="lastName" placeholder = "Last Name"/>
+        <button type="submit">Add User</button>
+      </form>
+    </div> 
+
   </body> 
 </html> 
