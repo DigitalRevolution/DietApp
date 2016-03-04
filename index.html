@@ -9,7 +9,7 @@
   </head>
 
   <body> 
-    <div ng-controller="MenuController">
+    <div ng-controller="MainController">
     
       <div class = "container">
         <div class = "row">
@@ -44,15 +44,20 @@
       <select>
         <option ng-repeat = "item in menu"> {{item.Name}} </option>
       </select>
-    </div><!-- Close Menu Controller Scope -->
 
-    <div ng-controller="UserController">
       <form name = "newUser" ng-submit = "addUser()">
-        <input ng-model="firstName" placeholder = "First Name"/>
-        <input ng-model="lastName" placeholder = "Last Name"/>
+        <input ng-model="firstName" placeholder = "First Name"/></br>
+        <input ng-model="lastName" placeholder = "Last Name"/></br>
+        <input ng-model="currentWeight" placeholder = "Current Weight"/></br>
+        <input ng-model="targetWeight" placeholder = "Target Weight"/></br>
+        <input ng-model="targetProtein" placeholder = "Target Protein"/></br>
+        <input ng-model="targetFat" placeholder = "Target Fat"/></br>
+        <input ng-model="targetCalories" placeholder = "Target Calories"/></br>
         <button type="submit">Add User</button>
       </form>
-    </div> 
+
+    </div><!-- Close Menu Controller Scope -->
+
 <a href = "templates/journal.html"><button>Journal</button></a>
   </body> 
 </html> 

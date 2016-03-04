@@ -7,16 +7,22 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
     <script src="../js/app.js"></script>
   </head>
-  <body>
-    <div ng-controller="MenuController">
-      <select>
-        <option ng-repeat = "item in menu"> {{item.Name}} </option>
-      </select>
-    </div> 
-    <div ng-controller="UserController">
-      <select>
-        <option ng-repeat = "person in users"> {{person.FirstName}} </option>
-      </select>
-    </div> 
+    <body> 
+        <div ng-controller="MenuController">
+          <div ng-controller = "JournalController">
+            <form name = "newJournalEntry" ng-submit = "addJournalEntry()">
+              <select ng-model = "newEntry">
+                <option ng-repeat = "item in menu" ng-selected = "displayItemStats($index)"> {{item.Name}} </option>
+              </select>
+              <div> 
+                {{item.Name}}
+              </div>
+              <button type="submit">Add Item</button>
+            </form>
+          </div>
+        </div>
+
+
+     
   </body>
 </html> 
